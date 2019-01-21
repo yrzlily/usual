@@ -24,9 +24,9 @@ public class AdminInterceptor implements HandlerInterceptor {
         log.info("start admin authentication");
 
         HttpSession session = request.getSession();
-        if(session.getAttribute(ADMIN_UID) == null && session.getAttribute(ADMIN_SID) == null){
-            response.sendRedirect("/admin/login/index");
-        }
+//        if(session.getAttribute(ADMIN_UID) == null && session.getAttribute(ADMIN_SID) == null){
+//            response.sendRedirect("/admin/login/index");
+//        }
 
         return true;
     }

@@ -8,12 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author yrz
  */
 @RestController
-@RequestMapping(value = {"/index",""})
+
 public class IndexController {
 
-    @GetMapping(value = {"/index",""})
-    public String index(){
-        return "/admin/login/index";
-    }
 
 }

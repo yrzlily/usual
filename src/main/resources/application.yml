@@ -25,3 +25,8 @@ spring:
     hibernate:
       ddl-auto: none
     open-in-view: true
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    #  mybatis主配置文件所在路径
+  type-aliases-package: com.yun.usual.entity   #  定义所有操作类的别名所在包
+  mapper-locations:                                     #  所有的mapper映射文件
+    - classpath:mybatis/mapper/*.xml

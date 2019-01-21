@@ -20,15 +20,20 @@ import java.io.IOException;
 @RequestMapping("/admin/login/**")
 public class AdminLoginController {
 
-    @Autowired
-    private AdminUserService adminUserService;
+    private final AdminUserService adminUserService;
 
+    private static String adminUid = "admin_uid";
+    private static String adminSid = "admin_sid";
+
+    @Autowired
+    public AdminLoginController(AdminUserService adminUserService) {
+        this.adminUserService = adminUserService;
+    }
 
     @GetMapping("/index")
     public String index() throws IOException {
 
-        String adminUid = "admin_uid";
-        String adminSid = "admin_sid";
+
         if(SessionUtils.getSessionAttribute(adminUid) != null && SessionUtils.getSessionAttribute(adminSid) != null){
             SessionUtils.getResponse().sendRedirect("/admin/index");
         }
@@ -50,8 +55,8 @@ public class AdminLoginController {
 
     @GetMapping("/logout")
     public ModelAndView logout(){
-        SessionUtils.removeSessionAttribute("admin_uid");
-        SessionUtils.removeSessionAttribute("admin_sid");
+        SessionUtils.removeSessionAttribute(adminUid);
+        SessionUtils.removeSessionAttribute(adminSid);
         return JumpUtils.success("/admin/login/index","退出成功");
     }
 }

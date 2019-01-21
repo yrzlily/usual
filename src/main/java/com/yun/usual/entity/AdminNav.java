@@ -23,7 +23,7 @@ public class AdminNav {
     @Column(name = "nav_parent_id")
     private Integer navParentId;
 
-    @Column(name = "sort")
+    @Column(name = "sort", nullable = false, columnDefinition = "0")
     private Integer sort;
 
     private String url;

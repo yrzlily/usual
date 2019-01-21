@@ -1,4 +1,4 @@
-<@override name="title">管理中心</@override>
+<@override name="title">主页面</@override>
 <@override name="head">
     <style>
         #body-iframe {

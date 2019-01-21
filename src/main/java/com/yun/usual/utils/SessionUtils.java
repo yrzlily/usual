@@ -13,11 +13,20 @@ import java.util.Objects;
  */
 public class SessionUtils {
 
+    public static Integer getUserId(){
+
+        String token = Objects.requireNonNull(getRequest()).getHeader("token");
+
+        Integer uid = Integer.valueOf(token.substring(0, token.lastIndexOf("&")));
+
+        return uid;
+    }
+
     /**
      * 获取请求request
      * @return
      */
-    private static HttpServletRequest getRequest(){
+    public static HttpServletRequest getRequest(){
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return requestAttributes==null? null : requestAttributes.getRequest();
     }

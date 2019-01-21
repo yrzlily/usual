@@ -4,10 +4,11 @@ package com.yun.usual.enums;
  * @author yrz
  */
 public enum  ResultEnum {
-    /**
-     * 请求成功
-     */
+    //请求成功
     SUCCESS(1,"成功"),
+    //layer读取数据
+    LAYER_GET_DATA(0,"读取成功"),
+    //请求失败
     ERROR(0, "失败");
 
 
